@@ -9,7 +9,7 @@ set -o pipefail
 
 TUI_VERSION="v1.0.0"
 AUTHOR="MahdiAfra"
-CORE_URL_DEFAULT="https://raw.githubusercontent.com/adlanweb-ctrl/yet-another-bench-script/master/yabs.sh"
+CORE_URL_DEFAULT="https://raw.githubusercontent.com/adlanweb-ctrl/kargadan-bench-script/master/yabs.sh"
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd -P)"
 
 NO_COLOR_MODE=0
