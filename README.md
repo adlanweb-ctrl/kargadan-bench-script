@@ -1,4 +1,61 @@
-# Yet-Another-Bench-Script
+# YABS TUI Edition
+
+> A modern, interactive terminal interface for YABS — designed by **MahdiAfra**.
+
+YABS TUI turns the original benchmark output into a polished terminal dashboard with an interactive launcher, live progress, color-coded status cards, comparison bars, and responsive tables for system, disk, network, and CPU results.
+
+The benchmark engine remains compatible with upstream [Yet-Another-Bench-Script](https://github.com/masonr/yet-another-bench-script) by Mason Rowe.
+
+## TUI Features
+
+- Interactive keyboard launcher with five benchmark profiles
+- Live stage and progress display while YABS is running
+- Graphical system overview with IPv4/IPv6 status
+- Relative performance bars for fio, iperf3, and Geekbench
+- Responsive layout for 72–110 column terminals
+- Unicode and ASCII fallback modes
+- Automatic color disabling for redirected output and `NO_COLOR`
+- Pure Bash renderer with no `jq` or Python dependency
+- Demo and JSON rendering modes for previews and saved results
+
+## Run the TUI
+
+Clone the repository and launch the interactive menu:
+
+```bash
+git clone https://github.com/adlanweb-ctrl/yet-another-bench-script.git
+cd yet-another-bench-script
+chmod +x yabs-tui.sh
+./yabs-tui.sh
+```
+
+Run a network-only benchmark:
+
+```bash
+./yabs-tui.sh --preset network
+```
+
+Preview the interface without running a real benchmark:
+
+```bash
+./yabs-tui.sh --demo
+```
+
+Render an existing YABS JSON result:
+
+```bash
+./yabs-tui.sh --render-json result.json
+```
+
+Pass original YABS flags after `--`:
+
+```bash
+./yabs-tui.sh -- -fg
+```
+
+Use `./yabs-tui.sh --help` for all options.
+
+## Original YABS Documentation
 
 Presenting an attempt to create _yet another_ Linux server *bench*marking _script_...
 

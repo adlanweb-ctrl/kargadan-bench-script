@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Yet Another Bench Script by Mason Rowe
+# TUI Edition and terminal interface by MahdiAfra
 # Initial Oct 2019; Last update Jul 2026
 
 # Disclaimer: This project is a work in progress. Any errors or suggestions should be
