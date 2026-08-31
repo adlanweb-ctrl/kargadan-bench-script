@@ -11,6 +11,7 @@ TUI_VERSION="v1.0.0"
 AUTHOR="MahdiAfra"
 CORE_URL_DEFAULT="https://raw.githubusercontent.com/adlanweb-ctrl/kargadan-bench-script/master/yabs.sh"
 SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]:-$0}")" 2>/dev/null && pwd -P)"
+RUN_DIR="$(pwd -P)"
 
 NO_COLOR_MODE=0
 NON_INTERACTIVE=0
@@ -443,10 +444,11 @@ render_progress() {
 run_benchmark() {
 	ensure_core
 	[[ -n "$TEMP_DIR" ]] || TEMP_DIR=$(mktemp -d "${TMPDIR:-/tmp}/yabs-tui.XXXXXX") || exit 1
-	local log="$TEMP_DIR/yabs.log" json_file="$TEMP_DIR/result.json" frame=0 status
+	local log="$TEMP_DIR/yabs.log" json_file="$TEMP_DIR/result.json" frame=0 status work_dir="$RUN_DIR"
+	[[ -d "$work_dir" && -w "$work_dir" ]] || work_dir="$TEMP_DIR"
 
 	(
-		cd "$SCRIPT_DIR" 2>/dev/null || cd "${TMPDIR:-/tmp}"
+		cd "$work_dir" || exit 1
 		bash "$CORE_SCRIPT" "${CORE_ARGS[@]}" -j
 	) >"$log" 2>&1 &
 	CORE_PID=$!
